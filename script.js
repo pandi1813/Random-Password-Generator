@@ -99,27 +99,42 @@ let listOfChosenCharacters = [];
 
 //create 1 long array
 
-// chosenCharacterTypes();
-// function chosenCharacterTypes(array1, array2, array3, array4) {
-//     if (addLowerCasedCharacters === true) {
-//         listOfChosenCharacters = listOfChosenCharacters.concat(lowerCasedCharacters)
-//         return listOfChosenCharacters
-//     }
-// }
+chosenCharacterTypes();
+function chosenCharacterTypes() {
+    if (addLowerCasedCharacters === true) {
+        listOfChosenCharacters = listOfChosenCharacters.concat(lowerCasedCharacters)
+    };
+     if (addUpperCasedCharacters === true) {
+        listOfChosenCharacters = listOfChosenCharacters.concat(upperCasedCharacters);
+    };
+    if (addNumbers === true) {
+        listOfChosenCharacters = listOfChosenCharacters.concat(numericCharacters)
+    };
+    if (addSpecialCharacters === true) {
+        listOfChosenCharacters = listOfChosenCharacters.concat(specialCharacters)
+    };
+}
+
+// generate random number to use as index for the joined array
+
+
+
+
+
 // Function to prompt user for password options
 // function getPasswordOptions() {
   
 // }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+// function getRandom(arr) {
 
-}
+// }
 
 // Function to generate password with user input
-function generatePassword() {
+// function generatePassword() {
 
-}
+// }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
