@@ -116,11 +116,15 @@ function chosenCharacterTypes() {
 }
 
 // generate random number to use as index for the joined array
+let randomNumber = []
+for (let i = 0; i < requiredPasswordLength; i++) {
+  randomNumber = randomnumber.push(Math.floor(Math.random() * listOfChosenCharacters.length));
+}
 
-
-
-
-
+console.log(randomNumber);
+console.log(randomNumber);
+console.log(randomNumber);
+ 
 // Function to prompt user for password options
 // function getPasswordOptions() {
   
