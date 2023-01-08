@@ -104,7 +104,17 @@ let generatedPassword = [];
 // function to prompt the get password requirements
 function getPasswordOptions() {
   
-   passwordLength = prompt("How many characters would you like to use?");
+  passwordLength = prompt("How many characters would you like to use?");
+  
+  if (passwordLength < 10) {
+    return alert("Password too short, please select at least 10 characters");     
+  };
+  
+  if (passwordLength  > 64) {
+    return alert("Password too long, please select maximum 64 characters");
+  }
+
+  
    addLowerCasedCharacters = confirm("Would you like to use lower cased characters?");
    addUpperCasedCharacters = confirm("Would you like to use upper cased characters?");
    addNumbers = confirm("Would you like to use numbers?");
@@ -141,19 +151,13 @@ function generateRandomNumbers() {
   };
   
 }
-console.log(randomNumber)
+// console.log(randomNumber)
 
 // select characters from the joined array and create a string of as a random password
 
 function generatePassword() {
 console.log(selectedCharactersArray);
-    if (passwordLength < 10) {
-      return alert("Password too short, please select at least 10 characters");     
-    };
-
-    if (passwordLength  > 64) {
-      return alert("Password too long, please select maximum 64 characters");
-    }
+    
 
     for (let i = 0; i < passwordLength; i++) {
       generatedPassword.push(selectedCharactersArray[randomNumber[i]]);
