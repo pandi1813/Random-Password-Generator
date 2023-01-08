@@ -96,6 +96,12 @@ let addUpperCasedCharacters;
 let addNumbers;
 let addSpecialCharacters;
 
+let selectedCharactersArray = [];
+let randomNumber = [];
+let generatedPassword = [];
+
+
+// function to prompt the get password requirements
 function getPasswordOptions() {
   
    passwordLength = prompt("How many characters would you like to use?");
@@ -107,10 +113,8 @@ function getPasswordOptions() {
    generateRandomNumbers();
 }
 
-let selectedCharactersArray = [];
 
-//create 1 long array
-
+// function to create 1 long array of the required character types
 // selectCharacterTypes();
 function selectCharacterTypes() {
   
@@ -129,8 +133,7 @@ function selectCharacterTypes() {
   
 }
 
-// generate random number to use as index for the joined array
-let randomNumber = [];
+// function to generate an array of random number to use as index for the joined array
 function generateRandomNumbers() {
   for (let i = 0; i < passwordLength; i++) {
     randomNumber.push(Math.floor(Math.random() * selectedCharactersArray.length));
@@ -140,8 +143,7 @@ function generateRandomNumbers() {
 }
 console.log(randomNumber)
 
-// select characters from the joined array using the random numbers as indexes
-let generatedPassword = [];
+// select characters from the joined array and create a string of as a random password
 
 function generatePassword() {
 console.log(selectedCharactersArray);
@@ -157,6 +159,7 @@ console.log(selectedCharactersArray);
       generatedPassword.push(selectedCharactersArray[randomNumber[i]]);
       console.log(randomNumber[i]);
     }
+
     console.log(generatedPassword)
     let stringPassword = generatedPassword.join("");
     console.log(stringPassword)
