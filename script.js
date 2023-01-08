@@ -89,75 +89,83 @@ var upperCasedCharacters = [
 ];
 
 
-let requiredPasswordLength = prompt("How many characters would you like to use?");
-let addLowerCasedCharacters = confirm("Would you like to use lower cased characters?");
-let addUpperCasedCharacters = confirm("Would you like to use upper cased characters?");
-let addNumbers = confirm("Would you like to use numbers?");
-let addSpecialCharacters = confirm("Would you like to use special characters?");
 
-let listOfChosenCharacters = [];
+let requiredPasswordLength;
+let addLowerCasedCharacters;
+let addUpperCasedCharacters;
+let addNumbers;
+let addSpecialCharacters;
+
+function getPasswordOptions() {
+  
+   requiredPasswordLength = prompt("How many characters would you like to use?");
+   addLowerCasedCharacters = confirm("Would you like to use lower cased characters?");
+   addUpperCasedCharacters = confirm("Would you like to use upper cased characters?");
+   addNumbers = confirm("Would you like to use numbers?");
+   addSpecialCharacters = confirm("Would you like to use special characters?");
+   selectCharacterTypes();
+   generateRandomNumbers();
+}
+
+let selectedCharactersArray = [];
 
 //create 1 long array
 
-chosenCharacterTypes();
-function chosenCharacterTypes() {
+// selectCharacterTypes();
+function selectCharacterTypes() {
+  
     if (addLowerCasedCharacters === true) {
-        listOfChosenCharacters = listOfChosenCharacters.concat(lowerCasedCharacters)
+        selectedCharactersArray = selectedCharactersArray.concat(lowerCasedCharacters)
     };
-     if (addUpperCasedCharacters === true) {
-        listOfChosenCharacters = listOfChosenCharacters.concat(upperCasedCharacters);
+    if (addUpperCasedCharacters === true) {
+        selectedCharactersArray = selectedCharactersArray.concat(upperCasedCharacters);
     };
     if (addNumbers === true) {
-        listOfChosenCharacters = listOfChosenCharacters.concat(numericCharacters)
+        selectedCharactersArray = selectedCharactersArray.concat(numericCharacters)
     };
     if (addSpecialCharacters === true) {
-        listOfChosenCharacters = listOfChosenCharacters.concat(specialCharacters)
+        selectedCharactersArray = selectedCharactersArray.concat(specialCharacters)
     };
+  
 }
 
 // generate random number to use as index for the joined array
 let randomNumber = [];
-for (let i = 0; i < requiredPasswordLength; i++) {
-  randomNumber.push(Math.floor(Math.random() * listOfChosenCharacters.length));
-};
-
+function generateRandomNumbers() {
+  for (let i = 0; i < requiredPasswordLength; i++) {
+    randomNumber.push(Math.floor(Math.random() * selectedCharactersArray.length));
+    
+  };
+  
+}
+console.log(randomNumber)
 
 // select characters from the joined array using the random numbers as indexes
 let generatedPassword = [];
-generatePassword();
+
 function generatePassword() {
+console.log(selectedCharactersArray)
+
 
     for (let i = 0; i < requiredPasswordLength; i++) {
-      generatedPassword.push(listOfChosenCharacters[randomNumber[i]])
-      
+      generatedPassword.push(selectedCharactersArray[randomNumber[i]])
+      console.log(randomNumber[i])
     }
+    console.log(generatedPassword)
+    let stringPassword = generatedPassword.join("");
+    console.log(stringPassword)
+    return stringPassword   
 }
  
 
-//join password array as strings
 
-let stringPassword = generatedPassword.join("");
-console.log(stringPassword)
-// Function to prompt user for password options
-// function getPasswordOptions() {
-  
-// }
-
-// Function for getting a random element from an array
-// function getRandom(arr) {
-
-// }
-
-// Function to generate password with user input
-// function generatePassword() {
-
-// }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  getPasswordOptions();
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 

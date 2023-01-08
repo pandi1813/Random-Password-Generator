@@ -13,3 +13,7 @@
 
     // for loop to select the required number of characters
         //how many times to run it = the return value from prompt
+
+
+
+//define a min and max number of characters
